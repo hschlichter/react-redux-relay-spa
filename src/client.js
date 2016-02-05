@@ -4,6 +4,9 @@ import Relay from 'react-relay';
 import { Router, Route, IndexLink } from 'react-router';
 import createBrowserHistory from 'history/lib/createBrowserHistory';
 import routes from './routes.js';
+import { Provider } from 'react-redux';
+import create from './redux/create';
+import DevTools from './containers/devtools';
 
 const history = createBrowserHistory();
 
@@ -32,10 +35,15 @@ function createElement(Component, props) {
 	}
 }
 
+let store = create({});
+
 render(
-	<div>
-		<Router history={history} createElement={createElement} routes={routes} />
-	</div>,
+	<Provider store={store}>
+		<div>
+			<Router history={history} createElement={createElement} routes={routes} />
+			<DevTools />
+		</div>
+	</Provider>,
 	document.getElementById('content')
 );
 
