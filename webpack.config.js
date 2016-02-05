@@ -1,4 +1,3 @@
-var fs = require('fs');
 var path = require('path');
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -21,7 +20,16 @@ module.exports = [{
 			{
 				test: /\.js[x]?$/,
 				exclude: /node_modules/,
-				loaders: ['babel-loader']
+				loader: 'babel-loader',
+				query: {
+					presets: ['es2015', 'stage-0', 'react'],
+					plugins: ['./babelRelayPlugin']
+				}
+			},
+			{
+				test: /\.js$/,
+				loader: "eslint-loader",
+				exclude: /node_modules/
 			}
 		]
 	},
@@ -31,11 +39,6 @@ module.exports = [{
 			template: 'src/index.html',
 			inject: 'body'
 		})
-	],
-	resolve: {
-		extensions: ['', '.js', '.jsx'],
-		root: [__dirname],
-		modulesDirectories: ['node_modules',  './']
-	}
+	]
 }];
 

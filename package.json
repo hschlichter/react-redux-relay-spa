@@ -4,20 +4,31 @@
   "description": "",
   "main": "client.js",
   "scripts": {
+    "start": "webpack-dev-server --history-api-fallback --content-base dist/",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "babel-core": "^6.4.5",
+    "babel-eslint": "^4.1.8",
     "babel-loader": "^6.2.1",
+    "babel-polyfill": "^6.3.14",
     "babel-preset-es2015": "^6.3.13",
     "babel-preset-react": "^6.3.13",
+    "babel-preset-stage-0": "^6.3.13",
+    "babel-relay-plugin": "^0.6.3",
+    "eslint": "^1.10.3",
+    "eslint-loader": "^1.2.1",
     "html-webpack-plugin": "^2.7.2",
-    "webpack": "^1.12.12"
+    "sync-request": "^3.0.0",
+    "webpack": "^1.12.12",
+    "webpack-dev-server": "^1.14.1"
   },
   "dependencies": {
+    "graphql": "^0.4.16",
     "react": "^0.14.7",
-    "react-dom": "^0.14.7"
+    "react-dom": "^0.14.7",
+    "react-relay": "^0.6.1"
   }
 }
