@@ -6,7 +6,7 @@ import FeedViewer from './components/feedviewer';
 
 export default (
 	<Route path="/" component={App}>
-		<IndexRoute component={FeedViewer} />
+		<IndexRoute name="Feed" component={FeedViewer} />
 	</Route>
 );
 

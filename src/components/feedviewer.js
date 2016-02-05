@@ -3,11 +3,6 @@ import Relay from 'react-relay';
 import RssFeedItem from './rssfeeditem';
 
 class FeedViewer extends Component {
-	constructor() {
-		super();
-		this.name = 'Feed';
-	}
-
 	render() {
 		return (
 			<div>

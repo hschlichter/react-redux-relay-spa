@@ -11,8 +11,10 @@ Relay.injectNetworkLayer(new Relay.DefaultNetworkLayer('http://localhost:3000/gr
 
 function createElement(Component, props) {
 	if (Relay.isContainer(Component)) {
+		const { name } = props.route;
+
 		let route = new class extends Relay.Route {
-			static routeName = Component.name;
+			static routeName = name;
 			static queries = {
 				viewer: (Component) => Relay.QL`
 					query Root {
